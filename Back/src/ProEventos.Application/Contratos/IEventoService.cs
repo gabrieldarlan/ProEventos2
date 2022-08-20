@@ -10,7 +10,7 @@ namespace ProEventos.Application.Contratos
     {
         Task<Evento> AddEventos(Evento model);
         Task<Evento> UpdateEvento(int eventoId, Evento model);
-        Task<bool> Delete(int eventoId);
+        Task<bool> DeleteEvento(int eventoId);
 
         Task<Evento[]> GetAllEnventosAsync(bool includePalestrantes = false);
         Task<Evento[]> GetAllEnventosByTemaAsync(string tema, bool includePalestrantes = false);
