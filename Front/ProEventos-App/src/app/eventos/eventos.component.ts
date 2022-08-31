@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
 import { Evento } from '../models/Evento';
 import { EventoService } from '../services/evento.service';
 
@@ -16,13 +16,13 @@ export class EventosComponent implements OnInit {
   margemImagem = 2;
   exibirImagem = true;
   // tslint:disable-next-line: variable-name
-  private _filtroLista = '';
+  private filtroListado = '';
 
   public get filtroLista(): string {
-    return this._filtroLista;
+    return this.filtroListado;
   }
   public set filtroLista(value) {
-    this._filtroLista = value;
+    this.filtroListado = value;
     this.eventosFiltrados = this.filtroLista
       ? this.filtrarEventos(this.filtroLista)
       : this.eventos;
@@ -46,12 +46,12 @@ export class EventosComponent implements OnInit {
   }
 
   public getEventos(): void {
-    this.eventoService.getEventos().subscribe(
-      (eventos: Evento[]) => {
+    this.eventoService.getEventos().subscribe({
+      next: (eventos: Evento[]) => {
         this.eventos = eventos;
         this.eventosFiltrados = this.eventos;
       },
-      (error) => console.log(error)
-    );
+      error: (error: any) => console.log(error),
+    });
   }
 }

@@ -1,4 +1,3 @@
-import { EventoService } from './services/evento.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +9,8 @@ import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
+import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
+import { EventoService } from './services/evento.service';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
@@ -19,6 +20,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     EventosComponent,
     PalestrantesComponent,
     NavComponent,
+    DateTimeFormatPipe,
   ],
   imports: [
     BrowserModule,
